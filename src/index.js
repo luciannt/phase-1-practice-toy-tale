@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-
+//Creates a new toy
 function toyMaker(toys) {
   toys.forEach((toy) => {
     const collection = document.getElementById("toy-collection");
@@ -31,7 +31,7 @@ function toyMaker(toys) {
     toyButton.id = toy.id;
 
     toyHeader.textContent = "[input-text]";
-    toyText.textContent = toy[likes] + " " + "Likes";
+    toyText.textContent = toy.likes + " " + "Likes";
     toyButton.textContent = "Like ❤️";
 
     collection.appendChild(toyCard);
@@ -42,8 +42,23 @@ function toyMaker(toys) {
   });
 }
 
+//Setting up fetch requests
 fetch("http://localhost:3000/toys")
   .then((res) => res.json)
   .then((data) => {
-    console.log(data);
+    toyMaker(data);
   });
+
+fetch("http://localhost:3000/toys", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+  },
+  body: JSON.stringify(data),
+})
+  .then((res) => res.json)
+  .then((data) => console.log(data));
+
+//Setting up toy likes event listener
+//button.addEventListener("click", (e) => e.preventDefault());
