@@ -49,16 +49,16 @@ fetch("http://localhost:3000/toys")
     toyMaker(data);
   });
 
-//fetch("http://localhost:3000/toys", {
-//  method: "POST",
-//  headers: {
-//   "Content-Type": "application/json",
-//    Accept: "application/json",
-//  },
-//  body: JSON.stringify(data),
-//})
-//  .then((res) => res.json)
-//  .then((data) => console.log(data));
+fetch("http://localhost:3000/toys", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+  },
+  body: JSON.stringify(data),
+})
+  .then((res) => res.json)
+  .then((data) => console.log(data));
 
 //Setting up toy likes event listener
 //button.addEventListener("click", (e) => e.preventDefault());
