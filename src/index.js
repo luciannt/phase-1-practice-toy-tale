@@ -44,21 +44,21 @@ function toyMaker(toys) {
 
 //Setting up fetch requests
 fetch("http://localhost:3000/toys")
-  .then((res) => res.json)
+  .then((res) => res.json())
   .then((data) => {
     toyMaker(data);
   });
 
-fetch("http://localhost:3000/toys", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-    Accept: "application/json",
-  },
-  body: JSON.stringify({ likes: newNumberOfLikes }),
-})
-  .then((res) => res.json)
-  .then((data) => console.log(data));
+//fetch("http://localhost:3000/toys", {
+//  method: "POST",
+//  headers: {
+//   "Content-Type": "application/json",
+//    Accept: "application/json",
+//  },
+//  body: JSON.stringify(data),
+//})
+//  .then((res) => res.json)
+//  .then((data) => console.log(data));
 
 //Setting up toy likes event listener
 //button.addEventListener("click", (e) => e.preventDefault());
