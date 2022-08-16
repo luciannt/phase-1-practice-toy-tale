@@ -24,13 +24,13 @@ function toyMaker(toys) {
     const toyText = document.createElement("p");
     const toyButton = document.createElement("button");
 
-    toyCard.className = "card";
-    toyButton.className = "like-btn";
+    toyCard.className.add = "card";
+    toyButton.className.add = "like-btn";
 
     toyImage.src = toy.image;
     toyButton.id = toy.id;
 
-    toyHeader.textContent = "[input-text]";
+    toyHeader.textContent = toy.name;
     toyText.textContent = toy.likes + " " + "Likes";
     toyButton.textContent = "Like ❤️";
 
@@ -55,7 +55,7 @@ fetch("http://localhost:3000/toys", {
     "Content-Type": "application/json",
     Accept: "application/json",
   },
-  body: JSON.stringify(data),
+  body: JSON.stringify({ likes: newNumberOfLikes }),
 })
   .then((res) => res.json)
   .then((data) => console.log(data));
